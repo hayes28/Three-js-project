@@ -54,7 +54,7 @@ window.addEventListener('resize', () => {
 // Animation
 const loop = () => {
   // Update objects
-  mesh.position.y += 0.01
+  mesh.position.y = Math.sin(window.performance.now() / 1000) * 2
   renderer.render(scene, camera)
   window.requestAnimationFrame(loop)
 }
