@@ -1,5 +1,6 @@
-import * as THREE from 'three';
+import * as THREE from 'three'
 import './style.css'
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 
 // Create a scene
 const scene = new THREE.Scene()
@@ -24,7 +25,7 @@ light.position.set(0, 10, 10)
 scene.add(light)
 
 // Create a camera
-const camera = new THREE.PerspectiveCamera(45, sizes.width/ sizes.height, 0.1, 100)
+const camera = new THREE.PerspectiveCamera(45, sizes.width / sizes.height, 0.1, 100)
 camera.position.z = 20
 scene.add(camera)
 
@@ -33,6 +34,10 @@ const canvas = document.querySelector('.webgl')
 const renderer = new THREE.WebGLRenderer({
   canvas,
 })
+
+// Controls
+const controls = new OrbitControls(camera, canvas)
+controls.enableDamping = true
 
 // Set the renderer size
 renderer.setSize(sizes.width, sizes.height)
