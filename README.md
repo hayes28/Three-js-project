@@ -44,4 +44,10 @@ to run the project:
 ```bash
 npm run dev
 ```
+## Deploying to GitHub Pages
 
+After installing the dependencies, you can build your project by running:
+
+```bash
+npm run build
+```
