@@ -3,21 +3,22 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main
+      - main  # Your default branch
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3  # Update to v3
 
-    - name: Install Node.js
-      uses: actions/setup-node@v2
+    - name: Setup Node.js
+      uses: actions/setup-node@v3  # Update to v3
       with:
-        node-version: '18'
+        node-version: '18'  # Using Node.js version 18
 
-    - name: Install dependencies
+    - name: Install Dependencies
       run: npm install
 
     - name: Build
@@ -26,6 +27,6 @@ jobs:
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@4.1.4
       with:
-        branch: gh-pages  # The branch the action should deploy to.
-        folder: dist  # The folder the action should deploy.
-        clean: true  # Automatically remove deleted files from the deployment branch
+        branch: gh-pages  # Branch to deploy to
+        folder: dist  # Folder to deploy
+        clean: true  # Automatically remove deleted files
